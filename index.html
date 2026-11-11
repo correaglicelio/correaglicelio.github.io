@@ -5,35 +5,74 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hub Já · Saúde Já e Educa Já</title>
 <meta name="description" content="Dados públicos e abertos de Saúde e Educação, em linguagem simples, para o cidadão, pais e gestores.">
-<meta name="theme-color" content="#23338C">
+<meta name="theme-color" content="#1C2A78">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <style>
-:root{--bg:#EEF0F8;--card:#fff;--tx:#141A33;--mu:#565E80;--bd:#DCE1EE;--az:#23338C;--am:#F2B705}
-@media (prefers-color-scheme:dark){:root{--bg:#10142A;--card:#171C33;--tx:#E9ECF7;--mu:#9AA3C7;--bd:#2A3158;--az:#9DAAF2}}
+:root{--bg:#EEF0F8;--card:#fff;--tx:#141A33;--mu:#565E80;--bd:#DCE1EE;--az:#23338C;--am:#F2B705;--saude:#0B6B63;--saude2:#0E9F6E;--educa:#23338C;--educa2:#5B72F0;--sombra:0 6px 22px rgb(20 26 51 / .09)}
+@media (prefers-color-scheme:dark){:root{--bg:#0E1226;--card:#171C33;--tx:#E9ECF7;--mu:#9AA3C7;--bd:#2A3158;--az:#9DAAF2;--saude:#2FD4A0;--educa:#9DAAF2;--sombra:0 6px 22px rgb(0 0 0 / .35)}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column}
-main{flex:1;width:100%;max-width:720px;margin:0 auto;padding:40px 16px 24px}
-h1{margin:0 0 6px;font-size:clamp(30px,8vw,42px);letter-spacing:-.03em;color:var(--az)}
-h1 em{font-style:normal;background:var(--am);color:#1A2462;padding:0 .2em .05em;border-radius:.22em;display:inline-block;transform:rotate(-4deg)}
-p.sub{margin:0 0 28px;color:var(--mu);max-width:520px}
-.apps{display:grid;gap:14px}
-a.app{display:block;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:20px;text-decoration:none;color:inherit;border-left:6px solid var(--cor)}
-a.app:hover,a.app:focus-visible{box-shadow:0 4px 16px #0002;outline:none}
-a.app h2{margin:0 0 4px;font-size:22px}
-a.app p{margin:0 0 10px;color:var(--mu)}
-a.app span{font-weight:600;color:var(--az)}
-.saude{--cor:#1F9D6E}.educa{--cor:#23338C}
-footer{max-width:720px;margin:0 auto;padding:16px;color:var(--mu);font-size:13px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(520px 320px at 8% -4%,rgb(14 159 110 / .16),transparent 70%),radial-gradient(560px 340px at 96% 0,rgb(91 114 240 / .18),transparent 70%)}
+main{flex:1;width:100%;max-width:880px;margin:0 auto;padding:34px 16px 20px}
+.marca{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.marca svg{width:62px;height:62px;flex:none;filter:drop-shadow(0 4px 10px rgb(28 42 120 / .35))}
+h1{margin:0;font-size:clamp(34px,9vw,52px);line-height:1;letter-spacing:-.04em;font-weight:800;color:var(--az)}
+h1 em{font-style:normal;background:var(--am);color:#1A2462;padding:.04em .2em .1em;border-radius:.22em;display:inline-block;transform:rotate(-4deg);margin-left:.06em;box-shadow:0 .06em 0 rgb(0 0 0 / .18)}
+.sub{margin:0 0 6px;font-size:18px;font-weight:600}
+.lead{margin:0 0 26px;color:var(--mu);max-width:560px}
+.apps{display:grid;gap:16px}
+@media (min-width:720px){.apps{grid-template-columns:1fr 1fr}}
+a.app{position:relative;display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:22px;text-decoration:none;color:inherit;box-shadow:var(--sombra);overflow:hidden;transition:transform .15s,box-shadow .15s}
+a.app::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+a.app:hover,a.app:focus-visible{transform:translateY(-3px);outline:none;box-shadow:0 12px 30px rgb(20 26 51 / .18)}
+a.app:focus-visible{outline:3px solid var(--am)}
+.topo{display:flex;align-items:center;gap:12px}
+.ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--c1),var(--c2));flex:none}
+.ic svg{width:28px;height:28px}
+a.app h2{margin:0;font-size:24px;letter-spacing:-.02em}
+a.app p{margin:0;color:var(--mu)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 4px}
+.tags span{font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:99px;background:color-mix(in srgb,var(--c2) 14%,transparent);color:var(--cor)}
+.go{margin-top:auto;padding-top:6px;font-weight:700;color:var(--cor)}
+.saude{--c1:#06373A;--c2:#0E9F6E;--cor:var(--saude)}
+.educa{--c1:#1C2A78;--c2:#5B72F0;--cor:var(--educa)}
+.breve{margin-top:16px;border:2px dashed var(--bd);border-radius:20px;padding:18px 20px;display:flex;align-items:center;gap:14px;color:var(--mu)}
+.breve .ic2{width:46px;height:46px;border-radius:13px;border:2px dashed var(--bd);display:grid;place-items:center;font-size:26px;font-weight:300;flex:none}
+.breve b{color:var(--tx)}
+footer{max-width:880px;margin:0 auto;padding:16px;color:var(--mu);font-size:13px}
+@media (prefers-reduced-motion:reduce){a.app{transition:none}a.app:hover{transform:none}}
 </style>
 </head>
 <body>
 <main>
+<div class="marca">
+<svg viewBox="0 0 64 64" aria-hidden="true">
+<defs><linearGradient id="gh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B4F52"/><stop offset=".55" stop-color="#1C2A78"/><stop offset="1" stop-color="#23338C"/></linearGradient></defs>
+<rect width="64" height="64" rx="16" fill="url(#gh)"/>
+<g stroke="#fff" stroke-opacity=".6" stroke-width="2.6" stroke-linecap="round"><path d="M32 33 18 20M32 33 46 20"/><path d="M32 33V50" stroke-dasharray="1 5.5"/></g>
+<circle cx="18" cy="20" r="7.5" fill="#0E9F6E"/><circle cx="46" cy="20" r="7.5" fill="#5B72F0"/>
+<circle cx="32" cy="52" r="5.5" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2.4" stroke-dasharray="3 3.2"/>
+<circle cx="32" cy="33" r="9" fill="#F2B705"/></svg>
 <h1>Hub <em>Já</em></h1>
-<p class="sub">Dados públicos e abertos, explicados em linguagem simples, para o cidadão, para pais e alunos e para gestores e conselheiros. Comece pelo seu município.</p>
-<div class="apps">
-<a class="app saude" href="/saude-ja/"><h2>Saúde Já</h2><p>Informações de saúde pública do seu município, com fonte e data.</p><span>Abrir o Saúde Já →</span></a>
-<a class="app educa" href="/educa-ja/"><h2>Educa Já</h2><p>Escolas, aprendizagem, gastos, merenda, transporte e mais.</p><span>Abrir o Educa Já →</span></a>
 </div>
+<p class="sub">Os dados públicos do seu município, num só lugar.</p>
+<p class="lead">Informações oficiais e abertas, explicadas em linguagem simples, para o cidadão, para pais e alunos e para gestores e conselheiros.</p>
+<div class="apps">
+<a class="app saude" href="/saude-ja/">
+<div class="topo"><div class="ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" fill="#fff"/><path d="M12 6.8v6.4M8.8 10h6.4" stroke="#0B6B63" stroke-width="2.2" stroke-linecap="round"/></svg></div><h2>Saúde Já</h2></div>
+<p>Unidades de saúde, água, vacinas, doenças, gastos e mais, com a fonte e a data de cada informação.</p>
+<div class="tags"><span>Unidades</span><span>Vacinas</span><span>Doenças</span><span>Gastos</span></div>
+<span class="go">Abrir o Saúde Já →</span>
+</a>
+<a class="app educa" href="/educa-ja/">
+<div class="topo"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="9" width="2.2" height="6" rx=".8" fill="#F2B705"/><rect x="11" y="5.5" width="2.2" height="9.5" rx=".8" fill="#F2B705"/><rect x="14" y="3" width="2.2" height="12" rx=".8" fill="#F2B705"/><path d="M2.5 13.2q4.5-1.8 9 .8v6q-4.5-2.6-9-.8z" fill="#fff"/><path d="M21.5 13.2q-4.5-1.8-9 .8v6q4.5-2.6 9-.8z" fill="#C9D1F5"/></svg></div><h2>Educa Já</h2></div>
+<p>Escolas, aprendizagem, gastos, merenda, transporte e professores, da sua cidade ao Brasil.</p>
+<div class="tags"><span>Escolas</span><span>Ideb</span><span>Merenda</span><span>PDDE</span></div>
+<span class="go">Abrir o Educa Já →</span>
+</a>
+</div>
+<div class="breve"><div class="ic2">+</div><div><b>Novos apps a caminho.</b><br>O Hub vai crescer com outros temas de interesse público.</div></div>
 </main>
-<footer>Dados abertos de fontes oficiais (INEP, FNDE, Ministério da Saúde e outras). Cada app mostra a fonte e a data de cada informação.</footer>
+<footer>Dados abertos de fontes oficiais (INEP, FNDE, Ministério da Saúde, IBGE e outras). Cada app mostra a fonte e a data de cada informação.</footer>
 </body>
 </html>
