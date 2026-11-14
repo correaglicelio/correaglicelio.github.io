@@ -44,6 +44,11 @@ a.app p{margin:0;color:var(--mu)}
 .educa{--c1:#1C2A78;--c2:#5B72F0;--cor:var(--educa)}
 .ambiente{--c1:#0F3F25;--c2:#E8590C;--cor:#B94509}
 @media (prefers-color-scheme:dark){.ambiente{--cor:#FF8A50}}
+.contas{--c1:#083344;--c2:#E0A100;--cor:#0B5C70}
+@media (prefers-color-scheme:dark){.contas{--cor:#6CC7DE}}
+.cnt{font-weight:800;letter-spacing:-.035em;color:#0B5C70}
+@media (prefers-color-scheme:dark){.cnt{color:#6CC7DE}}
+.cnt em{font-style:normal;display:inline-block;background:#E0A100;color:#2A2000;padding:.06em .2em .1em;border-radius:.22em;transform:rotate(-5deg) translateY(-.04em);margin-left:.06em;box-shadow:0 .06em 0 rgb(0 0 0 / .18)}
 .amb{font-weight:800;letter-spacing:-.035em;color:#1B6B3A}
 @media (prefers-color-scheme:dark){.amb{color:#6FD08F}}
 .amb em{font-style:normal;display:inline-block;background:#F28C28;color:#2A1200;padding:.06em .2em .1em;border-radius:.22em;transform:rotate(-5deg) translateY(-.04em);margin-left:.06em;box-shadow:0 .06em 0 rgb(0 0 0 / .18)}
@@ -88,9 +93,15 @@ footer a{color:var(--az);overflow-wrap:anywhere}
 <div class="tags"><span>Focos de calor</span><span>Mapa</span><span>Biomas</span></div>
 <span class="go">Abrir o Ambiente Já →</span>
 </a>
+<a class="app contas" href="/contas-ja/">
+<div class="topo"><div class="ic pin"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gcnt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E7490"/><stop offset="1" stop-color="#083344"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#gcnt)"/><circle cx="32" cy="32" r="17" fill="#E0A100"/><circle cx="32" cy="32" r="13" fill="none" stroke="#7A5600" stroke-width="1.6" opacity=".55"/><path d="M36.5 25.5c-1.2-1.3-3-1.8-4.6-1.8-2.6 0-4.4 1.3-4.4 3.3 0 4.8 9.2 2.7 9.2 7.5 0 2.2-2 3.5-4.7 3.5-2 0-3.8-.7-5-2.1M32 21v3M32 40v3" fill="none" stroke="#3A2A00" stroke-width="2.6" stroke-linecap="round"/></svg></div><h2 class="cnt">Contas <em>Já</em></h2></div>
+<p>Quanto dinheiro federal chegou à prefeitura do seu município, por área e por programa, comparado com o ano passado.</p>
+<div class="tags"><span>Repasses</span><span>FPM</span><span>Por área</span></div>
+<span class="go">Abrir o Contas Já →</span>
+</a>
 </div>
 <div class="breve"><div class="ic2">+</div><div><b>Novos apps a caminho.</b><br>O Hub vai crescer com outros temas de interesse público.</div></div>
 </main>
-<footer>Dados abertos de fontes oficiais (INEP, FNDE, Ministério da Saúde, INPE, IBGE e outras). Cada app mostra a fonte e a data de cada informação.<br>Criado por <b>Glicélio Corrêa</b> · <a href="mailto:glicelio.santos@edu.mt.gov.br">glicelio.santos@edu.mt.gov.br</a><br>© 2026 Glicélio Corrêa · Código sob licença MIT</footer>
+<footer>Dados abertos de fontes oficiais (INEP, FNDE, Ministério da Saúde, INPE, CGU, IBGE e outras). Cada app mostra a fonte e a data de cada informação.<br>Criado por <b>Glicélio Corrêa</b> · <a href="mailto:glicelio.santos@edu.mt.gov.br">glicelio.santos@edu.mt.gov.br</a><br>© 2026 Glicélio Corrêa · Código sob licença MIT</footer>
 </body>
 </html>
