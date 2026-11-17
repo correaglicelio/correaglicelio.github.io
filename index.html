@@ -54,11 +54,11 @@ a.app p{margin:0;color:var(--mu)}
 .breve{margin-top:12px;border:2px dashed var(--bd);border-radius:16px;padding:10px 16px;display:flex;align-items:center;gap:14px;color:var(--mu)}
 .breve .ic2{width:38px;height:38px;border-radius:13px;border:2px dashed var(--bd);display:grid;place-items:center;font-size:26px;font-weight:300;flex:none}
 .breve b{color:var(--tx)}
-.hoje{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:16px 18px;margin:0 0 16px;box-shadow:var(--sombra)}
-.hj-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hoje{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:10px 14px;margin:0 0 12px;box-shadow:var(--sombra)}
+.hj-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .hj-k{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mu)}
-.hj-cid{margin:2px 0 0;font-size:clamp(24px,6vw,32px);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:var(--az)}
-.hj-cid small{display:block;font-size:13px;font-weight:600;letter-spacing:0;color:var(--mu);margin-top:3px}
+.hj-cid{margin:0;font-size:clamp(20px,5vw,24px);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:var(--az)}
+.hj-cid small{font-size:14px;font-weight:600;letter-spacing:0;color:var(--mu);margin-left:6px}
 .hj-btns{display:flex;gap:8px;flex-wrap:wrap}
 .hj-b{font:inherit;font-size:14px;font-weight:700;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:8px 12px;cursor:pointer}
 .hj-b.dk{background:var(--tx);color:var(--card);border-color:var(--tx)}
@@ -66,17 +66,12 @@ a.app p{margin:0;color:var(--mu)}
 .hj-troca{display:none;margin:10px 0 0}.hj-troca.on{display:block}
 .hj-troca input{width:100%;font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx)}
 .hj-nota{margin:6px 0 0;font-size:13px;color:var(--mu)}
-.hj-list{display:grid;gap:8px;margin:12px 0 0}
-@media (min-width:720px){.hj-list{grid-template-columns:1fr 1fr}}
-a.hj-row{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;text-decoration:none;color:inherit;border:1px solid var(--bd);border-left:5px solid var(--cr,var(--bd));border-radius:12px;padding:10px 12px;background:var(--bg)}
-a.hj-row:hover,a.hj-row:focus-visible{border-color:var(--cr,var(--az));outline:none}
-a.hj-row:focus-visible{outline:3px solid var(--am)}
-.hj-e{font-size:24px;line-height:1;text-align:center}
-.hj-t{display:block;font-size:12.5px;font-weight:700;color:var(--mu)}
-.hj-v{display:block;font-size:15px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+.hj-mini{display:grid;gap:6px;margin:4px 0 2px}
+.hj-l{border-left:4px solid var(--cr,var(--bd));padding:2px 0 2px 10px;background:color-mix(in srgb,var(--cr,var(--bd)) 7%,transparent);border-radius:0 8px 8px 0}
+.hj-t{display:block;font-size:12px;font-weight:700;color:var(--mu)}
+.hj-v{display:block;font-size:14.5px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
 .hj-v.ld{color:var(--mu);font-weight:400}
-.hj-ch{color:var(--mu);font-size:20px}
-.hj-fonte{margin:10px 0 0;font-size:12px;color:var(--mu)}
+.hj-loc{display:flex;align-items:center;gap:10px}.hj-pin{font-size:26px}
 .hj-warn{--cr:#C2283B}.hj-att{--cr:#B24A00}.hj-ok{--cr:#11845B}.hj-inf{--cr:#2F6FB0}
 footer{max-width:880px;margin:0 auto;padding:10px 16px 12px;text-align:center;color:var(--mu);font-size:12.5px;line-height:1.45}
 footer a{color:var(--az);overflow-wrap:anywhere}
@@ -98,18 +93,17 @@ footer a{color:var(--az);overflow-wrap:anywhere}
 <p class="sub">Os dados públicos do seu município, num só lugar.</p>
 <p class="lead">Informações oficiais e abertas, explicadas em linguagem simples, para o cidadão, para pais e alunos e para gestores e conselheiros.</p>
 <section class="hoje" id="hoje" aria-labelledby="hj-cid" hidden>
-<div class="hj-top"><div><div class="hj-k">Hoje na sua cidade</div><h2 class="hj-cid" id="hj-cid"></h2></div>
+<div class="hj-top"><div class="hj-loc"><span class="hj-pin" aria-hidden="true">📍</span><div><div class="hj-k">Hoje na sua cidade</div><h2 class="hj-cid" id="hj-cid"></h2></div></div>
 <div class="hj-btns"><button type="button" class="hj-b dk" id="hj-gps">Perto de mim</button><button type="button" class="hj-b" id="hj-troca-b">Trocar cidade</button></div></div>
 <div class="hj-troca" id="hj-troca"><input id="hj-in" list="hj-dl" placeholder="Digite o nome da cidade" autocomplete="off" aria-label="Cidade"><datalist id="hj-dl"></datalist></div>
 <p class="hj-nota" id="hj-nota" role="status"></p>
-<div class="hj-list" id="hj-list"></div>
-<p class="hj-fonte">Resumo feito na hora a partir dos dados abertos de cada app (INMET, INPE, InfoDengue, Anvisa e Portal da Transparência). Toque numa linha para ver os detalhes e as fontes. A cidade escolhida vale para os quatro apps.</p>
 </section>
 <div class="apps">
 <a class="app saude" href="/saude-ja/">
 <div class="topo"><div class="ic pin"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#0E9F6E" d="M24 2C13.5 2 5 10.3 5 20.6 5 33.4 24 46 24 46s19-12.6 19-25.4C43 10.3 34.5 2 24 2z"/><path fill="#0A7F59" d="M24 2c10.5 0 19 8.3 19 18.6C43 33.4 24 46 24 46z" opacity=".35"/><path fill="#fff" d="M21.2 10.5h5.6v7.3h7.3v5.6h-7.3v7.3h-5.6v-7.3h-7.3v-5.6h7.3z"/><path fill="#F2A516" d="M35.6 4.2 38 9.4l5.2 2.4-5.2 2.4-2.4 5.2-2.4-5.2-5.2-2.4 5.2-2.4z"/></svg></div><h2>Saúde <span class="javerde">Já</span></h2></div>
 <p>Unidades de saúde, água, vacinas, doenças, gastos e mais, com a fonte e a data de cada informação.</p>
 <div class="tags"><span>Unidades</span><span>Vacinas</span><span>Doenças</span><span>Gastos</span></div>
+<div class="hj-mini" aria-label="Hoje na sua cidade"><div class="hj-l hj-inf" id="r-dengue"><span class="hj-t">🦟 Dengue</span><span class="hj-v ld">Buscando…</span></div><div class="hj-l hj-inf" id="r-anvisa"><span class="hj-t">📢 Último aviso da Anvisa</span><span class="hj-v ld">Buscando…</span></div></div>
 <span class="go">Abrir o Saúde Já →</span>
 </a>
 <a class="app educa" href="/educa-ja/">
@@ -122,12 +116,14 @@ footer a{color:var(--az);overflow-wrap:anywhere}
 <div class="topo"><div class="ic pin"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gamb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1F7A45"/><stop offset="1" stop-color="#0F3F25"/></linearGradient><linearGradient id="gfogo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB454"/><stop offset="1" stop-color="#E8590C"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#gamb)"/><path d="M33 8c1 9 13 15 13 29 0 9-6 17-14 17s-14-7-14-16c0-7 4-11 7-14 0 5 2 8 5 9-2-9 0-18 3-25z" fill="url(#gfogo)"/><path d="M32 30c1 5 7 8 7 14 0 5-3 8-7 8s-7-3-7-8c0-4 3-6 4-9 1 2 2 3 3 3z" fill="#FFD98A"/><path d="M8 58c8-4 14-4 24 0 10-4 16-4 24 0v6H8z" fill="#2E9E5B" opacity=".9"/></svg></div><h2 class="amb">Ambiente <em>Já</em></h2></div>
 <p>Focos de calor do seu município, comparados com o mesmo período do ano passado, com mapa, ranking e biomas.</p>
 <div class="tags"><span>Focos de calor</span><span>Mapa</span><span>Biomas</span></div>
+<div class="hj-mini" aria-label="Hoje na sua cidade"><div class="hj-l hj-inf" id="r-tempo"><span class="hj-t">⛅ Tempo hoje</span><span class="hj-v ld">Buscando…</span></div><div class="hj-l hj-inf" id="r-fogo"><span class="hj-t">🔥 Focos de calor, 7 dias</span><span class="hj-v ld">Buscando…</span></div></div>
 <span class="go">Abrir o Ambiente Já →</span>
 </a>
 <a class="app contas" href="/contas-ja/">
 <div class="topo"><div class="ic pin"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gcnt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E7490"/><stop offset="1" stop-color="#083344"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="url(#gcnt)"/><circle cx="32" cy="32" r="17" fill="#E0A100"/><circle cx="32" cy="32" r="13" fill="none" stroke="#7A5600" stroke-width="1.6" opacity=".55"/><path d="M36.5 25.5c-1.2-1.3-3-1.8-4.6-1.8-2.6 0-4.4 1.3-4.4 3.3 0 4.8 9.2 2.7 9.2 7.5 0 2.2-2 3.5-4.7 3.5-2 0-3.8-.7-5-2.1M32 21v3M32 40v3" fill="none" stroke="#3A2A00" stroke-width="2.6" stroke-linecap="round"/></svg></div><h2 class="cnt">Contas <em>Já</em></h2></div>
 <p>Quanto dinheiro federal chegou à prefeitura do seu município, por área e por programa, comparado com o ano passado.</p>
 <div class="tags"><span>Repasses</span><span>FPM</span><span>Por área</span></div>
+<div class="hj-mini" aria-label="Hoje na sua cidade"><div class="hj-l hj-inf" id="r-repasse"><span class="hj-t">💰 Repasses à prefeitura</span><span class="hj-v ld">Buscando…</span></div></div>
 <span class="go">Abrir o Contas Já →</span>
 </a>
 </div>
@@ -145,15 +141,13 @@ const gravar = m6 => { try { localStorage.setItem("hubja:cidade", JSON.stringify
 let MUN = null, CEN = null, tok = 0;
 const achar = m6 => MUN.find(m => String(m[0]).startsWith(m6));
 const UFC = {11:"RO",12:"AC",13:"AM",14:"RR",15:"PA",16:"AP",17:"TO",21:"MA",22:"PI",23:"CE",24:"RN",25:"PB",26:"PE",27:"AL",28:"SE",29:"BA",31:"MG",32:"ES",33:"RJ",35:"SP",41:"PR",42:"SC",43:"RS",50:"MS",51:"MT",52:"GO",53:"DF"};
-function linha(id, emoji, titulo, href, cls){ return `<a class="hj-row ${cls || "hj-inf"}" id="${id}" href="${href}"><span class="hj-e" aria-hidden="true">${emoji}</span><span><span class="hj-t">${titulo}</span><span class="hj-v ld">Buscando…</span></span><span class="hj-ch" aria-hidden="true">›</span></a>`; }
-function pr(id, texto, cls){ const a = $("#" + id); if (!a) return; const v = a.querySelector(".hj-v"); v.textContent = texto; v.classList.remove("ld"); if (cls) a.className = "hj-row " + cls; }
+function pr(id, texto, cls){ const a = $("#" + id); if (!a) return; const v = a.querySelector(".hj-v"); v.textContent = texto; v.classList.remove("ld"); if (cls) a.className = "hj-l " + cls; }
 const semDado = (id, uf) => pr(id, `Ainda sem dados de ${uf}.`, "hj-inf");
 async function render(){
   const m6 = lerCidade(), t = ++tok;
   const m = achar(m6) || achar("510675"); const uf = UFC[Math.floor(m[0] / 100000)], cod = m[0], cod6 = String(cod).slice(0, 6);
   $("#hj-cid").innerHTML = `${esc(m[1])}<small>${esc(uf)}</small>`;
-  $("#hj-list").innerHTML = linha("r-tempo", "⛅", "Tempo hoje", "/ambiente-ja/#tempo") + linha("r-fogo", "🔥", "Focos de calor, últimos 7 dias", "/ambiente-ja/") + linha("r-dengue", "🦟", "Dengue", "/saude-ja/#arbo") + linha("r-anvisa", "📢", "Último aviso da Anvisa", "/saude-ja/#painel") + linha("r-repasse", "💰", "Repasses federais à prefeitura", "/contas-ja/") + linha("r-educa", "🎓", "Educação", "/educa-ja/");
-  pr("r-educa", `Escolas, Ideb, merenda e gastos de ${m[1]}.`, "hj-inf");
+  document.querySelectorAll(".hj-l").forEach(l => { l.className = "hj-l hj-inf"; const v = l.querySelector(".hj-v"); v.textContent = "Buscando…"; v.className = "hj-v ld"; });
   const ok = () => t === tok;
   const u = uf.toLowerCase(), cod2 = Math.floor(cod / 100000);
   // Tempo (INMET, ao vivo)
